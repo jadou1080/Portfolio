@@ -1,0 +1,198 @@
+/* Style du conteneur principal du carrousel */
+.project-carousel {
+    position: relative;
+    padding: 0 30px; 
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Style de la carte projet (Rectangle global) */
+.project-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+    margin: 10px;
+    overflow: hidden;
+    min-height: 300px;
+    width: calc(100% - 20px);
+}
+
+/* Colonne de gauche (Texte) */
+.project-info {
+    flex: 1.2; 
+    padding: 35px 40px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Style spécifique pour les listes à puces des projets */
+.project-info ul {
+    padding-left: 20px;
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
+.project-info li {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    list-style-type: disc; 
+}
+
+/* Colonne de droite (Image) */
+.project-media {
+    flex: 1;
+    padding: 25px 35px 25px 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-media img {
+    width: 100%;
+    height: 100%;
+    max-height: 250px; 
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+}
+
+/* NOUVEAU : Empêche le zoom sur certaines images pour qu'elles s'affichent en entier */
+.project-media img.img-contain {
+    object-fit: contain;
+    box-shadow: none; /* On enlève l'ombre qui ferait bizarre sur une image non remplie */
+    padding: 10px; /* Un peu d'espace pour que l'image respire */
+}
+
+/* Typographie de la carte */
+.project-title {
+    font-size: 26px; 
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+.project-tags {
+    margin-bottom: 15px;
+}
+
+.project-tag {
+    display: inline-block;
+    background-color: #f0f4f8;
+    color: #5b708b;
+    padding: 6px 12px; 
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+/* Bouton "Voir le projet" */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    color: #007bff; 
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: auto; 
+    transition: color 0.3s ease;
+}
+
+.project-link i {
+    margin-left: 8px;
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.project-link:hover i {
+    transform: translateX(5px); 
+}
+
+/* Personnalisation des flèches du Carousel Slick */
+.project-carousel .slick-prev,
+.project-carousel .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #eee;
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Suppression des flèches blanches par défaut */
+.project-carousel .slick-prev::before,
+.project-carousel .slick-next::before {
+    display: none !important; 
+    content: none !important;
+}
+
+.project-carousel .slick-prev:hover,
+.project-carousel .slick-next:hover {
+    background: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    color: #000;
+}
+
+.project-carousel .slick-prev {
+    left: -20px; 
+}
+
+.project-carousel .slick-next {
+    right: -20px; 
+}
+
+.project-carousel .slick-prev:focus,
+.project-carousel .slick-next:focus {
+    outline: none;
+}
+
+/* Rendre le tout responsive sur téléphone */
+@media (max-width: 991px) {
+    .project-card {
+        flex-direction: column-reverse; 
+        min-height: auto;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .project-media {
+        padding: 20px; 
+        height: auto;
+        flex: none;
+    }
+    .project-media img {
+        max-height: 200px;
+    }
+    .project-carousel {
+        padding: 0 20px; 
+    }
+    .project-info {
+        padding: 20px;
+    }
+    .project-info ul {
+        margin-bottom: 15px;
+    }
+    .project-carousel .slick-prev { left: -10px; }
+    .project-carousel .slick-next { right: -10px; }
+}
